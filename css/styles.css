@@ -719,7 +719,7 @@ ul {
   transform: scale(1) translate(-50%, -50%);
 
   width: 408px;
-  height: 584px;
+  min-height: 576px;
 
   background-color: var(--modal-background-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
