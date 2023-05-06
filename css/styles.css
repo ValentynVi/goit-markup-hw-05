@@ -1,28 +1,47 @@
 :root {
+  /* FONTS */
   --primary-fonts: Roboto, sans-serif;
   --secondary-fonts: Raleway, sans-serif;
 
+  /* FONTS COLOR */
   --primary-text-color: #434455;
   --secondary-text-color: #2e2f42;
   --third-text-color: #f4f4fd;
 
+  /* ACCENT COLOR */
   --primary-accent-color: #404bbf;
   --secondary-accent-color: #4d5ae5;
   --third-accent-color: #31d0aa;
 
+  /* BACKGROUN-COLOR */
   --primary-background-color: #ffffff;
   --secondary-background-color: #2e2f42;
   --third-background-color: #f4f4fd;
   --border-color: #e7e9fc;
   --secondary-border-color: #8e8f99;
 
+  /* MODAL-BG-COLOR */
+  --backdrop-background-color: rgba(46, 47, 66, 0.4);
+  --modal-background-color: #fcfcfc;
+  --modal-btn-color: #e7e9fc;
+  --modal-icon-color: #2e2f42;
+
+  /* ICONS COLOR */
   --social-icons-color: #f4f4fd;
   --customer-icon-color: #8e8f99;
+
+  /* ANIMATION */
+
+  --anim-fast: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-INDEX */
+  --header-idx: 10;
+  --modal-idx: 100;
 }
 
 /**
   |============================
-  | Visualy-hidden H2 H1
+  | Visualy-hidden H2 H1 utilita
   |============================
 */
 .visually-hidden {
@@ -38,12 +57,19 @@
   overflow: hidden;
 }
 
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /**
   |============================
   | BASE STYLE
   |============================
 */
 body {
+  /* padding-top: 72px; */
   font-family: var(--primary-fonts);
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
@@ -139,6 +165,12 @@ ul {
 
 /* HEADER NAV */
 .header {
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+
+  width: 100%;
+
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 
@@ -165,7 +197,6 @@ ul {
   padding: 25.5px 0;
 
   display: block;
-  /* background-color: tomato; */
 }
 
 .logo-span {
@@ -178,20 +209,42 @@ ul {
 }
 
 .header-link {
-  padding: 24px 0;
+  position: relative;
 
   display: block;
+  padding: 24px 0;
 
   color: var(--secondary-text-color);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  /* background-color: tomato; */
+
+  transition: color var(--anim-fast);
 }
 
 .header-link:hover,
 .header-link:focus {
   color: var(--primary-accent-color);
+}
+
+.header-link.active {
+  color: var(--primary-accent-color);
+}
+
+.header-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+
+  border-radius: 2px;
+}
+
+.header-link.active::after {
+  background-color: var(--primary-accent-color);
 }
 
 /* HEADER ADRRESS */
@@ -206,7 +259,8 @@ ul {
   display: block;
 
   font-style: normal;
-  /* background-color: tomato; */
+
+  transition: color var(--anim-fast);
 }
 
 .address-link:hover,
@@ -238,7 +292,6 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* outline: 1px solid tomato; */
 }
 
 .hero-title {
@@ -266,7 +319,8 @@ ul {
 
   background-color: var(--secondary-accent-color);
   border: none;
-  /* border: 1px solid transparent; */
+
+  transition: background-color var(--anim-fast);
 }
 
 .hero-button:hover,
@@ -386,6 +440,8 @@ ul {
 
   background-color: var(--secondary-accent-color);
   border-radius: 50%;
+
+  transition: background-color var(--anim-fast);
 }
 
 .employee-social-link:hover,
@@ -428,6 +484,8 @@ ul {
 
   border: 1px solid var(--secondary-border-color);
   border-radius: 4px;
+
+  transition: color var(--anim-fast), border-color var(--anim-fast);
 }
 
 .customers-social-link:hover,
@@ -502,9 +560,8 @@ ul {
 
   background-color: var(--secondary-accent-color);
   border-radius: 50%;
-}
-.footer-social-icon {
-  fill: currentColor;
+
+  transition: background-color var(--anim-fast);
 }
 
 .footer-social-link:hover,
@@ -512,43 +569,11 @@ ul {
   background-color: var(--third-accent-color);
 }
 
+.footer-social-icon {
+  fill: currentColor;
+}
+
 /* PORTFOLIO-PAGE */
-/**
-  |============================
-  | PORTFOLIO STYLE
-  |============================
-*/
-
-.portfolio {
-  padding-top: 96px;
-  padding-bottom: 120px;
-}
-
-.portfolio-img-list {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 24px;
-  row-gap: 48px;
-  flex-basis: calc((100% - 48px * 2) / 3);
-}
-
-.portfolio-link {
-  display: block;
-}
-
-.portfolio-link:hover,
-.portfolio-link:focus {
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-
-.portfolio-description {
-  padding: 32px 16px;
-
-  border: 1px solid var(--border-color);
-
-  border-top: none;
-}
 
 /**
   |============================
@@ -574,6 +599,9 @@ ul {
 
   border: 1px solid var(--border-color);
   background-color: var(--third-background-color);
+
+  transition: color var(--anim-fast), border var(--anim-fast),
+    background-color var(--anim-fast), box-shadow var(--anim-fast);
 }
 
 .portfolio-button:hover,
@@ -583,4 +611,148 @@ ul {
   background-color: var(--primary-accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+/**
+  |============================
+  | PORTFOLIO STYLE
+  |============================
+*/
+
+.portfolio {
+  padding-top: 96px;
+  padding-bottom: 120px;
+}
+
+.portfolio-img-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 48px;
+  flex-basis: calc((100% - 48px * 2) / 3);
+}
+
+.portfolio-link {
+  display: block;
+
+  transition: box-shadow var(--anim-fast);
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-description {
+  padding: 32px 16px;
+
+  border: 1px solid var(--border-color);
+
+  border-top: none;
+}
+
+/* PORTFOLIO THUMB */
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: translateY(100%);
+  transition: transform var(--anim-fast);
+
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px 0;
+
+  background-color: var(--secondary-accent-color);
+}
+
+.portfolio-item:hover .overlay {
+  transform: translateY(0);
+}
+
+/* .portfolio-link:hover {
+  transform: translateY(0);
+} */
+
+.overlay-text {
+  color: var(--third-text-color);
+}
+
+/**
+  |============================
+  | MODAL WINDOW
+  |============================
+*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--backdrop-background-color);
+  /* backdrop-filter: blur(1px); */
+  z-index: var(--modal-idx);
+
+  transition: opacity var(--anim-fast), visibility var(--anim-fast);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: scale(1) translate(-50%, -50%);
+
+  width: 408px;
+  height: 584px;
+
+  background-color: var(--modal-background-color);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transition: opacity var(--anim-fast), transform var(--anim-fast);
+}
+
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: scale(1.2) translate(-50%, -50%);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  width: 24px;
+  height: 24px;
+
+  color: var(--modal-icon-color);
+  background-color: var(--modal-btn-color);
+  border: none;
+  border-radius: 50%;
+}
+
+.modal-close-icon {
+  fill: currentColor;
 }
