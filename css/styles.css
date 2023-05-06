@@ -711,6 +711,11 @@ ul {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: scale(1.2) translate(-50%, -50%);
+}
+
 .modal {
   position: absolute;
   top: 50%;
@@ -727,11 +732,6 @@ ul {
   border-radius: 4px;
 
   transition: opacity var(--anim-fast), transform var(--anim-fast);
-}
-
-.backdrop.is-hidden .modal {
-  opacity: 0;
-  transform: scale(1.2) translate(-50%, -50%);
 }
 
 .modal-close-btn {
@@ -760,6 +760,7 @@ ul {
 .modal-close-btn:focus {
   background-color: var(--primary-accent-color);
   border: none;
+  color: white;
 }
 
 .modal-close-icon {
@@ -767,7 +768,7 @@ ul {
   transition: fill var(--anim-fast);
 }
 
-.modal-close-icon:hover,
-.modal-close-icon:focus {
-  fill: #ffffff;
+.modal-close-btn:hover .modal-close-icon,
+.modal-close-btn:focus .modal-close-icon {
+  fill: currentColor;
 }
