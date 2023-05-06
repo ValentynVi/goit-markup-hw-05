@@ -726,7 +726,8 @@ ul {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  transition: opacity var(--anim-fast), transform var(--anim-fast);
+  transition: transform 250ms var(--anim-fast);
+  /* transition: opacity var(--anim-fast), transform var(--anim-fast); */
 }
 
 .backdrop.is-hidden .modal {
@@ -739,6 +740,9 @@ ul {
   top: 24px;
   right: 24px;
 
+  transition: background-color 250ms var(--anim-fast),
+    border 250ms var(--anim-fast);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -749,10 +753,21 @@ ul {
 
   color: var(--modal-icon-color);
   background-color: var(--modal-btn-color);
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: var(--primary-accent-color);
 }
 
 .modal-close-icon {
   fill: currentColor;
+}
+
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  fill: #ffffff;
 }
