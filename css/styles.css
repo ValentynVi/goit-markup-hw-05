@@ -485,13 +485,13 @@ ul {
   border: 1px solid var(--secondary-border-color);
   border-radius: 4px;
 
-  transition: color var(--anim-fast), border-color var(--anim-fast);
+  transition: border-color var(--anim-fast), color var(--anim-fast);
 }
 
 .customers-social-link:hover,
 .customers-social-link:focus {
-  color: var(--primary-accent-color);
   border-color: var(--primary-accent-color);
+  color: var(--primary-accent-color);
 }
 
 .customer-social-icon {
