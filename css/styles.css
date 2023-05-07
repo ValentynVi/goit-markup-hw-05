@@ -673,11 +673,12 @@ ul {
   background-color: var(--secondary-accent-color);
 }
 
-.portfolio-item:hover .overlay {
+.portfolio-link:hover .overlay,
+.portfolio-link:focus .overlay {
   transform: translateY(0);
 }
 
-/* .portfolio-link:hover {
+/* .portfolio-item:hover .overlay {
   transform: translateY(0);
 } */
 
