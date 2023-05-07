@@ -650,21 +650,6 @@ ul {
   overflow: hidden;
 }
 
-/* .portfolio-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  color: var(--third-text-color);
-  background-color: var(--secondary-accent-color);
-
-  transform: translateY(100%);
-  transition: transform var(--anim-fast);
-} */
-
 .overlay-text {
   padding: 40px 32px;
   position: absolute;
