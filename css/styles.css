@@ -678,12 +678,14 @@ ul {
   transform: translateY(0);
 }
 
-/* .portfolio-item:hover .overlay {
+.portfolio-link:hover .overlay-text,
+.portfolio-link:focus .overlay-text {
   transform: translateY(0);
-} */
+}
 
 .overlay-text {
   color: var(--third-text-color);
+  transform: translateY(100%);
 }
 
 /**
